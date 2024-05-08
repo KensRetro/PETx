@@ -62,7 +62,7 @@ Various keyboard options were considered but again, for the prototype at least, 
 version of the edit ROM (or some other available hardware solution)
 
 # BEFORE YOU BUILD:
-Some of the parts are near impossible to find, specifically 3446 chips, 74177 chips, and 74154 chips in a DIP package
+Some of the parts are near impossible to find, specifically 3446 chips, 74177 chips, and 74154 chips in a DIP package. 
 I have a replacement sub-board for the 3446 chips in another repository that has been tested successfully.
 You can use 74197 chips as a direct replacement for the 74177, but they are very rare as well.
 You can use a newer version of the 74154 chip but it seems to only be available in a SMT version, therefore an adaptor board may need to be created.

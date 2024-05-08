@@ -77,6 +77,7 @@ The errors have been corrected in the schematic and board files and Gerbers have
 
 Changes to this version (REV.1) also include the following:
 1) Added solder jumpers to allow WD6502 to be used
-
+2) Changed Power supply to 1 regulator
+   
 TO DO:
 1. check/fix alignment of mounting holes to C64 case (Not checked or tested in VIC20 case at this time)

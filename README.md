@@ -1,4 +1,4 @@
-This project is currently partially complete, please read the following carefully and make an informed decision before you attempt to build it.
+# This project is currently partially complete, please read the following carefully and make an informed decision before you attempt to build it.
 
 I like to provide schematics in Eagle (version 7) because that's what I have used for years at work and it's easy to upgrade the files to 
 newer versions or Kicad etc.  It's just a comfort thing for me, but if you change to another format please be sure to carefully check 
@@ -7,14 +7,14 @@ that everything looks as it should - conversions don't always go cleanly.
 DISCLAIMER: All information is provided 'AS-IS", I have tried to be as accurate as possible but that doesn't mean there are no mistakes. 
 Any errors or omissions etc. are your own responsibility.  
 
-Project Notes : C64 sized PET - PETx
+# Project Notes : C64 sized PET - PETx
 
 The prototype is based on the the 9 inch screen version of the PET (board #320349) so no CRTC chip is needed.
 I added the video circuit similar to the ones posted around the net
 It was also decided to go with a more similar to original re-creation as it makes it easier to substitute parts etc. 
 and compatibility remains quite good.
 
-Changes / Updates in this version : 
+# Changes / Updates in this version (PROTOTYPE): 
 1. Added connections for RESET (momentary switch)
 2. Added NO_ROM line for diagnostics
 3. Added peizo buzzer for standard PET sounds
@@ -37,12 +37,12 @@ Changes / Updates in this version :
 17. Changed Character ROM to allow more fonts and use of SST39SF010A as well as 27xxx series Eproms.
 18. Added power switch & connector that should fit into the existing C64 bracket  (if used)
 19. Added access to unused RAM in 8000 area (8400-8FFF)
-20. Added solder jumpers to allow WD6502 to be used
     
-Potential upgrades not currently incorporated: (Feel free to suggest others)
+# Potential upgrades not currently incorporated:
+(Feel free to suggest others)
 1. Add a writable latch that controls some of the dipswitch selectable features above
     
-Notes:
+# More Notes:
 This project is a PET 2001, 9 inch screen version (started with schematic 320349). This model was chosen for 2 reasons, 
 first, a CRTC chip is not required and second, it outputs a near standard video signal with the included interface.
 The Intent was to make it fit into a C64 / VIC-20 case.
@@ -61,20 +61,21 @@ that have been incorporated to slim the footprint or facilitate routing.
 Various keyboard options were considered but again, for the prototype at least, were sticking with a standard C64/VIC20 keyboard and a patched 
 version of the edit ROM (or some other available hardware solution)
 
-BEFORE YOU BUILD:
+# BEFORE YOU BUILD:
 Some of the parts are near impossible to find, specifically 3446 chips, 74177 chips, and 74154 chips in a DIP package
 I have a replacement sub-board for the 3446 chips in another repository that has been tested successfully.
 You can use 74197 chips as a direct replacement for the 74177, but they are very rare as well.
 You can use a newer version of the 74154 chip but it seems to only be available in a SMT version, therefore an adaptor board may need to be created.
 
-PROTOTYPE VERSION:
-This version has been created and tested.  Some small errors were corrected with bodge wires and and it seems to function well and passes the diagnostic 
+# PROTOTYPE VERSION:
+This version has been created and tested.  Some small errors were corrected with bodge wires and an added chip and and it seems to function well and passes the diagnostic 
 cartridge tests consistantly.
 
-RELEASE VERSION:
-This version HAS NOT been created (I didn't really need another hanging around)
+# RELEASE VERSION:
+This version HAS NOT been created or tested (I didn't really need another hanging around)
 The errors have been corrected in the schematic and board files and Gerbers have been created.
-Changes to this version also include the following:
+
+Changes to this version (REV.1) also include the following:
 1) Added solder jumpers to allow WD6502 to be used
 
 TO DO:

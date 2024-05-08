@@ -1,0 +1,63 @@
+
+PETx Construction and testing notes:
+
+(*** = Updateed note)
+
+You will need basic soldering and electronic skills to complete this project!!!
+
+*** including an EPROM burner or EEPROM writer if that's what you wish to use, the board should accept 27xxx series EPROMS, SST39SF010A Flash memory or compatible, for both the main ROM and Character Generator with a jumper setting - let me know and I will send the configuration details for which ever you wish to use.
+
+At this time I have tried the board with limited variety of optional chips, some seem more critical than others, please be aware this may affect your results.
+The board has passed 100 cycles of the Commodore diagnostic test and has been tried with a 2031 disk drive and PETdisk MAX successfully.
+Various games have been tested using both the standard PET keyboard and with a revised ROM, a C64 keyboard.
+The C64 keyboard solution seems to need a bit more work for my liking.
+
+*** The replacement edit ROM I found online which is supposed to substitute for a C64 style keyboard leaves a lot to be desired. There seems to be no access to shifted characters and the run/stop key doesn't work (however the K key seems to work in it's place to stop execution for some reason)  If you can test with an actual PET keyboard to start it may be beneficial.  I have 2 options to correct this, first, we can try to fix the current replacement ROM or I have created a small secondary project to replace the PET keyboard with a PC (PS2 style) keyboard that seems to function quite well - Details in another repository
+FYI: if you use the C64 keyboard, use right shift and F1 to move and space to fire in Space Invaders :)
+
+
+There are a few rare (obsolete) chips that you will need to source to complete this project, Sorry but I can't help, I have no spares either.
+Attached is the parts list, please make sure you can get the necessary parts (at a price you are comfortable with) BEFORE ordering.
+
+The board seems to be a bit finicky about certain chips, I had to try a different brand and speed or RAM chips to get things to work properly (slower RAM worked better, not sure why), but i'm looking into it.
+
+*** I found the issue with the RAM.  Basically there was a small timing issue which, if you are interested, you can learn about in this video : https://www.youtube.com/watch?v=i_wrxBdXTgM (start around 22:00 if you don't want to watch the whole thing)  - Ben Eater has produced a selection of really great videos dealing with building around a 6502, I enjoyed watching these and some of his other well explained videos.  The issue was fixed exactly as Ben fixed it (he's actually used the exact same chips as I have, coincedentally) by adding an extra gate into the circuit. 
+
+Be prepared to do a lot of soldering, it's all through hole so it's easy, but it's a large board and it's a good idea to do the job carefully and well to avoid issues.
+I'm still trying low power versions of most chips (awaiting another parts order) to try and get the power supply less loaded.
+
+*** I swapped out MOST of the chips for 74HCTxxx versions and it brought the power consumption down from 1.0 Amp to around 600 mA (on the 5V rail), my supply feeding the board which is now modified for a single regulator actually reads around 380 mA @ 9VDC input to the board. NOTE: There were a few chips that did not seem to work well as HCT (or that I could not find HCT replacement for) so they remain the normal ones.  Interestingly and as a bonus, most HCT versions seemd to be less expensive than their regular counterparts. 
+
+With the factory designated chip versions, the board requires about 1 amp @ 5VDC - I designed it with 2 (2 amp) regulators because the original board had 2.
+I found out this is not necessary and with a jumper you can get it down to 1. The regulator is good up to 15 Volts, so a 1 amp supply at 10-12VDC should do it.
+
+There are some chip substitutions that might be easier to find:
+For 74177 you can use 74197 - I found DM74197N chips - a little more power needed but basically the same chip.
+For 74LS157 I used 74LS257 chips I happen to have on-hand
+For 74154 you might have a hard time finding the 28 pin DIP needed, SMT versions seem readily available. 
+I have a converter board for these in another repository
+For MC3446N (IEEE drivers) I made a converter board to substitute that seems to work well, less drive but unless you are hooking up many devices it likely won't matter.
+I have a few of those left, let me know if you need them, (no charge,) 3 are needed for the project
+You'll also need a 6502, 6522 and 2 of 6520 chips - These also are getting rare.
+
+A few other parts may need to be figured out or are optional:
+such as then Power jack, power switch, on board LED's, expansion RAM (NOTE: so far this option is untested)
+
+*** I have tested the expansion RAM and with the same fix as is needed for the main RAM, plus 1 other minor tweak, it seems to work well. It is entirely optional but will give you RAM from $8800 - $AFFF with the ability to switch to read only, allowing you to load option ROMS in this area and make them appear as read-only to the system.  I have also enabled the excess RAM in the video circuit (by default) to allow access to RAM from the end of video $8400 - $8800.  I have not tried the RAM above $B000, it's there and should record anything written to it (poked in) but will not respond until you do 2 things: 1. Disable the normal ROM (using the !NOROM signal) and 2. Enable the RAM to respond with the correct jumper.  I can explain in detail if you wish, just let me know,  This switch is a bit tricky as it requires the cpu to not be accessing ROM while it switches, so a small bit of assembler code is required with a 2 pole switch to change the mentioned signals; I have tested this minimally with success.
+
+Build Notes:
+
+I used sockets for EVERY chip, this is a good idea! Please use good quality sockets for the 6502/6522/6520's/RAM/ROM/CHARGEN sockets at a minimum - Machine pin type seem to work well for chips that may be changed occasionally (especially during troubleshooting).
+*** Machine pin sockets work great for NEW parts, not so well for de-soldered ones, something to keep in mind. 
+Also note that some component footprints might not be quite correct (capacitor sizes and that sort of thing) as I used footprints that suited the parts I had on-hand.
+Some (bottom) mounting holes don't quite line up with C64 case.
+
+Holes are provided to be able to use the metal bracket off a C64 board (power switch end) if you can find one.
+A jumper (and a cut trace) is needed on the RAM chip
+1 Regulator needed only (install jumper to other footprint)
+Buzzer doesn't quit fit properly, need to adjust footprint
+
+
+
+
+ 
